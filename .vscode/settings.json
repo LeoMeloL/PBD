@@ -3,14 +3,14 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.base.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.controls.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.fxml.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.graphics.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.media.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.swing.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx.web.jar",
-        "c:\\Users\\Leonardo\\projects\\JAVAVAITOMARNOCUFILHODAPUTA\\VAITOMARNOCUARROMBADODEMERDA\\javafx-sdk-21.0.1\\lib\\javafx-swt.jar",
-        "c:\\Users\\Leonardo\\Desktop\\postgresql-42.7.1.jar"
+        "${workspaceFolder}/lib/javafx.base.jar",
+        "${workspaceFolder}/lib/javafx.controls.jar",
+        "${workspaceFolder}/lib/javafx.fxml.jar",
+        "${workspaceFolder}/lib/javafx.graphics.jar",
+        "${workspaceFolder}/lib/javafx.media.jar",
+        "${workspaceFolder}/lib/javafx.swing.jar",
+        "${workspaceFolder}/lib/javafx.web.jar",
+        "${workspaceFolder}/lib/javafx-swt.jar",
+        "${workspaceFolder}/lib/postgresql-42.7.1.jar"
     ]
 }
