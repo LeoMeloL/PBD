@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="1294.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="standartController">
+   <children>
+      <ImageView fitHeight="835.0" fitWidth="1294.0" pickOnBounds="true">
+         <image>
+            <Image url="@img/362619.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="29.0" layoutY="75.0" prefHeight="121.0" prefWidth="1236.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="183.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/113bd0b3d583486999f1f65ab4b899cb.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="193.0" layoutY="14.0" prefHeight="17.0" prefWidth="295.0" text="APARTAMENTO STANDART 1 PESSOA">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="193.0" layoutY="31.0" prefHeight="17.0" prefWidth="147.0" text="*numero de vagas" />
+            <Label fx:id="singleLabel" layoutX="193.0" layoutY="75.0" onMouseClicked="#singleRoomAction" onMouseEntered="#singlePopAction" onMouseExited="#singleExitAction" prefHeight="32.0" prefWidth="155.0" style="-fx-border-color: #fcaa08;" text="Consultar Valores" textFill="#fcaa08">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane layoutX="29.0" layoutY="258.0" prefHeight="121.0" prefWidth="1236.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="183.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/406081a93014494e92aaf99b36531815.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="194.0" layoutY="14.0" prefHeight="17.0" prefWidth="237.0" text="APARTAMENTO STANDART 2 PESSOAS">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="194.0" layoutY="31.0" prefHeight="17.0" prefWidth="183.0" text="*numero de vagas" />
+            <Label fx:id="duoLabel" layoutX="194.0" layoutY="75.0" onMouseClicked="#duoRoomAction" onMouseEntered="#duoPopAction" onMouseExited="#duoExitAction" prefHeight="32.0" prefWidth="155.0" style="-fx-border-color: #fcaa08;" text="Consultar Valores" textFill="#fcaa08">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="29.0" layoutY="454.0" prefHeight="121.0" prefWidth="1236.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="183.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/b668edcfbabb49faaa78d57b7064ee18.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="195.0" layoutY="14.0" prefHeight="17.0" prefWidth="237.0" text="APARTAMENTO STANDART 3 PESSOAS">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="195.0" layoutY="31.0" prefHeight="17.0" prefWidth="113.0" text="*numero de vagas" />
+            <Label fx:id="trioLabel" layoutX="195.0" layoutY="75.0" onMouseClicked="#trioRoomAction" onMouseEntered="#trioPopAction" onMouseExited="#trioExitAction" prefHeight="32.0" prefWidth="155.0" style="-fx-border-color: #fcaa08;" text="Consultar Valores" textFill="#fcaa08">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="29.0" layoutY="649.0" prefHeight="121.0" prefWidth="1236.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/253570062.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="190.0" layoutY="14.0" prefHeight="17.0" prefWidth="229.0" text="APARTAMENTO STANDART 5 PESSOAS">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="190.0" layoutY="31.0" prefHeight="17.0" prefWidth="206.0" text="*numero de vagas" />
+            <Label fx:id="fiveLabel" layoutX="190.0" layoutY="75.0" onMouseClicked="#fiveRoomAction" onMouseEntered="#fivePopAction" onMouseExited="#fiveExitAction" prefHeight="32.0" prefWidth="155.0" style="-fx-border-color: #fcaa08;" text="Consultar Valores" textFill="#fcaa08">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="567.0" prefHeight="50.0" prefWidth="200.0" text="RESERVAS" textFill="#fcaa08">
+         <font>
+            <Font name="System Bold Italic" size="34.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

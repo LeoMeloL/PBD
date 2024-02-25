@@ -77,6 +77,7 @@ public class mainController {
 
     @FXML
     void quartosAction(MouseEvent event) {
+        openRoomScreen();
 
     }
 
@@ -121,6 +122,22 @@ public class mainController {
         } catch (Exception e) {
             System.out.println("Erro ao abrir a contact screen");
         }
+    }
+
+    private void openRoomScreen(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("roomLayout.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene tela = new Scene(root);
+
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("Rooms");
+            primaryStage.setScene(tela);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.out.println("Erro ao abrir a room screen");
+        }
+
     }
 
 

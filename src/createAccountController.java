@@ -57,7 +57,7 @@ public class createAccountController {
             PreparedStatement stmt = null;
             try {
                 Class.forName("org.postgresql.Driver"); 
-                conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/PBD", "postgres", "123456");
+                conexao = DriverManager.getConnection("jdbc:postgresql://192.168.0.6:5432/PBD", "postgres", "123456");
                 System.out.println("Conexão bem-sucedida!");
                 String sql = "INSERT INTO usuario (nome, email, senha_hash, cpf) VALUES (?, ?, ?, ?)";
                 stmt = conexao.prepareStatement(sql);
