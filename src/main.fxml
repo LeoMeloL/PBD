@@ -15,7 +15,7 @@
             <Image url="@img/pexels-pixabay-258154.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="historiaLabel" layoutX="714.0" layoutY="25.0" onMouseClicked="#historiaAction" onMouseEntered="#historiaPopAction" onMouseExited="#historiaExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Historia" textFill="WHITE">
+      <Label fx:id="historiaLabel" layoutX="589.0" layoutY="25.0" onMouseClicked="#historiaAction" onMouseEntered="#historiaPopAction" onMouseExited="#historiaExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Historia" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="35.0" />
          </font>
@@ -23,7 +23,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label fx:id="quartosLabel" layoutX="385.0" layoutY="25.0" onMouseClicked="#quartosAction" onMouseEntered="#quartosPopAction" onMouseExited="#quartosExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Quartos" textFill="WHITE">
+      <Label fx:id="quartosLabel" layoutX="309.0" layoutY="25.0" onMouseClicked="#quartosAction" onMouseEntered="#quartosPopAction" onMouseExited="#quartosExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Quartos" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="35.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label fx:id="inicioLabel" layoutX="84.0" layoutY="25.0" onMouseClicked="#inicioAction" onMouseEntered="#inicioPopAction" onMouseExited="#inicioExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Inicio" textFill="WHITE">
+      <Label fx:id="inicioLabel" layoutX="28.0" layoutY="25.0" onMouseClicked="#inicioAction" onMouseEntered="#inicioPopAction" onMouseExited="#inicioExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Inicio" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="35.0" />
          </font>
@@ -39,7 +39,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label fx:id="contatoLabel" layoutX="1008.0" layoutY="25.0" onMouseClicked="#contatoAction" onMouseEntered="#contatoPopAction" onMouseExited="#contatoExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Contato" textFill="WHITE">
+      <Label fx:id="contatoLabel" layoutX="868.0" layoutY="25.0" onMouseClicked="#contatoAction" onMouseEntered="#contatoPopAction" onMouseExited="#contatoExitAction" prefHeight="61.0" prefWidth="152.0" style="-fx-border-color: #ffffff; -fx-border-width: 4;" text="Contato" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="35.0" />
          </font>
@@ -89,5 +89,13 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
+      <ImageView fx:id="accountImage" fitHeight="71.0" fitWidth="84.0" layoutX="1122.0" layoutY="16.0" onMouseClicked="#accountAction" onMouseEntered="#accountPopAction" onMouseExited="#accoutExitAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/149071.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </Pane>

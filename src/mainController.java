@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -20,6 +21,28 @@ public class mainController {
 
     @FXML
     private Label quartosLabel;
+    
+    @FXML
+    private ImageView accountImage;
+
+    @FXML
+    void accountAction(MouseEvent event) {
+        openAccountScreen();
+
+    }
+
+    @FXML
+    void accountPopAction(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        accountImage.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void accoutExitAction(MouseEvent event) {
+        accountImage.setEffect(null);
+
+    }
 
     @FXML
     void contatoAction(MouseEvent event) {
@@ -152,6 +175,24 @@ public class mainController {
 
     }
 
+    private void openAccountScreen(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("accountLayout.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene tela = new Scene(root);
 
-}
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("Account");
+            primaryStage.setScene(tela);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.out.println("Erro ao abrir a account screen");
+        }
+
+        Stage stage = (Stage) quartosLabel.getScene().getWindow();
+        stage.close();
+
+    }
+    }
+
 

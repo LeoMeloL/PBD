@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="732.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accountController">
+   <children>
+      <ImageView fitHeight="187.0" fitWidth="215.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/149071.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="644.0" layoutY="28.0" prefHeight="19.0" prefWidth="47.0" text="Nome:" />
+      <Label fx:id="nameLabel" layoutX="691.0" layoutY="29.0" prefHeight="17.0" prefWidth="109.0" text="xxxxxxxxxx" />
+      <Label layoutX="749.0" layoutY="121.0" text="Reservas:" />
+      <Label fx:id="reservasQtdLabel" layoutX="812.0" layoutY="121.0" text="xxxxxxxx" />
+      <Line endX="174.0" layoutX="807.0" layoutY="66.0" startX="-183.0" />
+      <Label fx:id="reservasLabel" layoutX="214.0" layoutY="251.0" prefHeight="344.0" prefWidth="430.0" text="xxxxxxxxx" />
+      <TextField fx:id="emailTextField" layoutX="228.0" layoutY="61.0" onKeyPressed="#emailEnterAction" prefHeight="96.0" prefWidth="222.0" promptText="Digite seu email" />
+      <Label layoutX="644.0" layoutY="78.0" text="Email:" />
+      <Label fx:id="emailLabel" layoutX="691.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="xxxxxxx" />
+      <Label layoutX="825.0" layoutY="29.0" text="Senha: " />
+      <Label fx:id="senhaLabel" layoutX="878.0" layoutY="29.0" prefHeight="17.0" prefWidth="69.0" text="xxxxxxx" />
+      <Label layoutX="825.0" layoutY="78.0" text="Cpf: " />
+      <Label fx:id="cpfLabel" layoutX="878.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="xxxxxxxxx" />
+      <Line endX="174.0" layoutX="807.0" layoutY="109.0" startX="-183.0" />
+   </children>
+</Pane>

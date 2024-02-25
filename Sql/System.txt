@@ -37,6 +37,7 @@ CREATE TABLE Quarto (
     id_hotel INT,
     id_categoria INT,
     capacidade INT,
+    ocupado BOOLEAN;
     FOREIGN KEY (id_categoria) REFERENCES CategoriaQuarto(id),
     FOREIGN KEY (id_hotel) REFERENCES Hotel(id)
 );
@@ -81,8 +82,8 @@ VALUES ('Standart', 'Descrição do Quarto Standart', 'Restrições do Quarto St
        ('VIP', 'Descrição do Quarto VIP', 'Restrições do Quarto VIP', 500.00, 5),
        ('Suíte', 'Descrição da Suíte', 'Restrições da Suíte', 300.00, 10);
 
-INSERT INTO Quarto (id_hotel, id_categoria, capacidade)
-VALUES (1, 1, 1), (1, 1, 2), (1, 2, 3), (1, 2, 4), (1, 2, 5), (1, 3, 2), (1, 4, 2);
+INSERT INTO Quarto (id_categoria, capacidade, ocupado)
+VALUES (1, 1, false), (1, 2, false), (2, 3, false), (2, 4, false), (2, 5, false), (3, 2, false), (4, 2, false);
 
 INSERT INTO Reserva (id_usuario, id_quarto, preco, numero_quarto)
 VALUES (1, 1, 300.00, 101);
