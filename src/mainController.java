@@ -27,6 +27,7 @@ public class mainController {
 
     }
 
+
     @FXML
     void contatoExitAction(MouseEvent event) {
         contatoLabel.setEffect(null);
@@ -107,7 +108,12 @@ public class mainController {
         } catch (Exception e) {
             System.out.println("Erro ao abrir a history screen");
         }
+
+        Stage stage = (Stage) historiaLabel.getScene().getWindow();
+        stage.close();
+
     }
+  
 
     private void openContactScreen() {
         try {
@@ -122,6 +128,9 @@ public class mainController {
         } catch (Exception e) {
             System.out.println("Erro ao abrir a contact screen");
         }
+
+        Stage stage = (Stage) contatoLabel.getScene().getWindow();
+        stage.close();
     }
 
     private void openRoomScreen(){
@@ -137,6 +146,9 @@ public class mainController {
         } catch (Exception e) {
             System.out.println("Erro ao abrir a room screen");
         }
+
+        Stage stage = (Stage) quartosLabel.getScene().getWindow();
+        stage.close();
 
     }
 

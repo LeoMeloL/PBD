@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="868.0" prefWidth="1258.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="roomController">
    <children>
       <ImageView fitHeight="874.0" fitWidth="1258.0" layoutY="-5.0" pickOnBounds="true">
@@ -69,5 +68,13 @@
          </font>
       </TextField>
       <Button fx:id="searchBarButton" layoutX="548.0" layoutY="125.0" mnemonicParsing="false" onAction="#searchBarAction" prefHeight="40.0" prefWidth="164.0" text="Pesquisar" />
+      <Label fx:id="inicioLabel" layoutX="23.0" layoutY="14.0" onMouseClicked="#inicioAction" onMouseEntered="#inicioPopAction" onMouseExited="#inicioExitAction" prefHeight="57.0" prefWidth="137.0" style="-fx-border-color: #ffffff; -fx-border-width: 3;" text="Inicio" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
    </children>
 </Pane>

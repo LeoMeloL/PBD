@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1158.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="historyController">
    <children>
@@ -25,6 +25,14 @@
                <font>
                   <Font name="System Bold Italic" size="33.0" />
                </font>
+            </Label>
+            <Label fx:id="inicioLabel" layoutX="222.0" layoutY="705.0" onMouseClicked="#inicioAction" onMouseEntered="#inicioPopAction" onMouseExited="#inicioExitAction" prefHeight="58.0" prefWidth="136.0" style="-fx-border-color: #ffffff; -fx-border-width: 3;" text="Inicio" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>

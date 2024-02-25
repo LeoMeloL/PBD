@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1283.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contactController">
    <children>
@@ -76,9 +76,17 @@
       </Label>
       <ImageView fitHeight="283.0" fitWidth="478.0" layoutX="87.0" layoutY="461.0" pickOnBounds="true">
          <image>
-            <Image url="@img/DATA_I~1.PNG" />
+            <Image url="@img/data.png" />
          </image>
       </ImageView>
       <Button fx:id="sendMessageButton" layoutX="685.0" layoutY="630.0" mnemonicParsing="false" onAction="#sendMessageAction" prefHeight="76.0" prefWidth="110.0" text="Enviar Mensagem" />
+      <Label fx:id="inicioLabel" layoutX="545.0" layoutY="10.0" onMouseClicked="#inicioAction" onMouseEntered="#inicioPopAction" onMouseExited="#inicioExitAction" prefHeight="42.0" prefWidth="140.0" style="-fx-border-color: #ffffff; -fx-border-width: 3;" text="Inicio" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
    </children>
 </Pane>
