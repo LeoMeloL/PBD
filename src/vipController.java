@@ -16,42 +16,29 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class standartController {
+public class vipController {
 
     String url = "jdbc:postgresql://192.168.0.6:5432/PBD";
     String user = "postgres";
     String password = "123456";
 
     @FXML
-    private Label duoLabel;
-
-    @FXML
-    private Label fiveLabel;
-
-    @FXML
-    private Label singleLabel;
-
-    @FXML
-    private Label trioLabel;
+    private TextField emailTextField;
 
     @FXML
     private Label inicioLabel;
 
     @FXML
-    private TextField duoTextField;
+    private Label suiteLabel;
 
     @FXML
-    private TextField fiveTextField;
+    private TextField suiteTextField;
 
     @FXML
-    private TextField emailTextField;
+    private Label vipLabel;
 
     @FXML
-    private TextField singleTextField;
-
-    @FXML
-    private TextField trioTextField;
-
+    private TextField vipTextField;
 
     @FXML
     void inicioAction(MouseEvent event) {
@@ -69,21 +56,6 @@ public class standartController {
     void inicioPopAction(MouseEvent event) {
         DropShadow dropShadow = new DropShadow();
         inicioLabel.setEffect(dropShadow);
-
-    }
-
-
-
-    @FXML
-    void duoExitAction(MouseEvent event) {
-        duoLabel.setEffect(null);
-    }
-
-    @FXML
-    void duoPopAction(MouseEvent event) {
-        DropShadow dropShadow = new DropShadow();
-        duoLabel.setEffect(dropShadow);
-
 
     }
 
@@ -111,20 +83,19 @@ public class standartController {
     }
 
     @FXML
-    void duoRoomAction(MouseEvent event) {
-
-        String textoNumero = singleTextField.getText();
+    void suiteAction(MouseEvent event) {
+        String textoNumero = vipTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
         String email = emailTextField.getText();
         int idUsuario = obterDadosUsuario(email);
         //int idQuarto = obterIdQuarto();
         //int numeroQuarto = obterNumeroQuarto(idQuarto);
-        double preco = 150;
+        double preco = 700;
 
-        List<Integer> quartosCategoria1 = obterQuartosCategoria(1, 2);
+        List<Integer> quartosCategoria3 = obterQuartosCategoria(3);
         boolean quartosDisponiveis = false;
 
-        for (int idQuarto : quartosCategoria1) {
+        for (int idQuarto : quartosCategoria3) {
             if (!quartoEstaOcupado(idQuarto)) {
                 quartosDisponiveis = true;
                 break;
@@ -137,7 +108,7 @@ public class standartController {
             return; // Saia do método, pois não há quartos disponíveis para reserva
         }
 
-        for (int idQuarto : quartosCategoria1) {
+        for (int idQuarto : quartosCategoria3) {
             int numeroQuarto = obterNumeroQuarto(idQuarto);
             adicionarReserva(idUsuario, idQuarto, preco, numeroQuarto);
             setOcupado(idQuarto);
@@ -147,88 +118,49 @@ public class standartController {
             }
         }
 
+
     }
 
     @FXML
-    void fiveExitAction(MouseEvent event) {
-        fiveLabel.setEffect(null);
+    void suiteExitAction(MouseEvent event) {
+        suiteLabel.setEffect(null);
     }
 
     @FXML
-    void fivePopAction(MouseEvent event) {
+    void suitePopAction(MouseEvent event) {
         DropShadow dropShadow = new DropShadow();
-        fiveLabel.setEffect(dropShadow);
-
-    }
-
-    @FXML
-    void fiveRoomAction(MouseEvent event) {
-        	
-        String textoNumero = singleTextField.getText();
-        int qtd = Integer.parseInt(textoNumero);
-        String email = emailTextField.getText();
-        int idUsuario = obterDadosUsuario(email);
-        //int idQuarto = obterIdQuarto();
-        //int numeroQuarto = obterNumeroQuarto(idQuarto);
-        double preco = 300;
-
-        List<Integer> quartosCategoria1 = obterQuartosCategoria(1, 5);
-        boolean quartosDisponiveis = false;
-
-        for (int idQuarto : quartosCategoria1) {
-            if (!quartoEstaOcupado(idQuarto)) {
-                quartosDisponiveis = true;
-                break;
-            }
-        }
-
-        if (!quartosDisponiveis) {
-            // Se não houver quartos disponíveis, exiba uma mensagem de erro
-            System.out.println("Nao ha quartos disponiveis");
-            return; // Saia do método, pois não há quartos disponíveis para reserva
-        }
-
-        for (int idQuarto : quartosCategoria1) {
-            int numeroQuarto = obterNumeroQuarto(idQuarto);
-            adicionarReserva(idUsuario, idQuarto, preco, numeroQuarto);
-            setOcupado(idQuarto);
-            qtd--;
-            if (qtd == 0) {
-                break; // Parar se a quantidade desejada de reservas for atingida
-            }
-        }
+        suiteLabel.setEffect(dropShadow);
 
 
     }
 
     @FXML
-    void singleExitAction(MouseEvent event) {
-        singleLabel.setEffect(null);
+    void vipExitAction(MouseEvent event) {
+        vipLabel.setEffect(null);
 
     }
 
     @FXML
-    void singlePopAction(MouseEvent event) {
+    void vipPopAction(MouseEvent event) {
         DropShadow dropShadow = new DropShadow();
-        singleLabel.setEffect(dropShadow);
+        vipLabel.setEffect(dropShadow);
 
     }
 
     @FXML
-    void singleRoomAction(MouseEvent event) {
-
-        String textoNumero = singleTextField.getText();
+    void vipRoomAction(MouseEvent event) {
+        String textoNumero = vipTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
         String email = emailTextField.getText();
         int idUsuario = obterDadosUsuario(email);
         //int idQuarto = obterIdQuarto();
         //int numeroQuarto = obterNumeroQuarto(idQuarto);
-        double preco = 100;
+        double preco = 500;
 
-        List<Integer> quartosCategoria1 = obterQuartosCategoria(1, 1);
+        List<Integer> quartosCategoria2 = obterQuartosCategoria(2);
         boolean quartosDisponiveis = false;
 
-        for (int idQuarto : quartosCategoria1) {
+        for (int idQuarto : quartosCategoria2) {
             if (!quartoEstaOcupado(idQuarto)) {
                 quartosDisponiveis = true;
                 break;
@@ -241,7 +173,7 @@ public class standartController {
             return; // Saia do método, pois não há quartos disponíveis para reserva
         }
 
-        for (int idQuarto : quartosCategoria1) {
+        for (int idQuarto : quartosCategoria2) {
             int numeroQuarto = obterNumeroQuarto(idQuarto);
             adicionarReserva(idUsuario, idQuarto, preco, numeroQuarto);
             setOcupado(idQuarto);
@@ -250,59 +182,6 @@ public class standartController {
                 break; // Parar se a quantidade desejada de reservas for atingida
             }
         }
-
-    }
-
-    @FXML
-    void trioExitAction(MouseEvent event) {
-        trioLabel.setEffect(null);
-
-    }
-
-    @FXML
-    void trioPopAction(MouseEvent event) {
-        DropShadow dropShadow = new DropShadow();
-        trioLabel.setEffect(dropShadow);
-
-    }
-
-    @FXML
-    void trioRoomAction(MouseEvent event) {
-
-        String textoNumero = singleTextField.getText();
-        int qtd = Integer.parseInt(textoNumero);
-        String email = emailTextField.getText();
-        int idUsuario = obterDadosUsuario(email);
-        //int idQuarto = obterIdQuarto();
-        //int numeroQuarto = obterNumeroQuarto(idQuarto);
-        double preco = 200;
-
-        List<Integer> quartosCategoria1 = obterQuartosCategoria(1, 3);
-        boolean quartosDisponiveis = false;
-
-        for (int idQuarto : quartosCategoria1) {
-            if (!quartoEstaOcupado(idQuarto)) {
-                quartosDisponiveis = true;
-                break;
-            }
-        }
-
-        if (!quartosDisponiveis) {
-            // Se não houver quartos disponíveis, exiba uma mensagem de erro
-            System.out.println("Nao ha quartos disponiveis");
-            return; // Saia do método, pois não há quartos disponíveis para reserva
-        }
-
-        for (int idQuarto : quartosCategoria1) {
-            int numeroQuarto = obterNumeroQuarto(idQuarto);
-            adicionarReserva(idUsuario, idQuarto, preco, numeroQuarto);
-            setOcupado(idQuarto);
-            qtd--;
-            if (qtd == 0) {
-                break; // Parar se a quantidade desejada de reservas for atingida
-            }
-        }
-
 
     }
 
@@ -324,8 +203,8 @@ public class standartController {
         stage.close();
 
         }
-        
-    private void adicionarReserva(int idUsuario, int idQuarto, double preco, int numeroQuarto) {
+
+        private void adicionarReserva(int idUsuario, int idQuarto, double preco, int numeroQuarto) {
 
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
             String sql = "INSERT INTO reserva (id_usuario, id_quarto, preco, numero_quarto) " +
@@ -439,14 +318,13 @@ public class standartController {
 
     }
 
-    private List<Integer> obterQuartosCategoria(int categoria, int pessoas) {
+    private List<Integer> obterQuartosCategoria(int categoria) {
     List<Integer> quartosCategoria = new ArrayList<>();
 
-    String sql = "SELECT id FROM Quarto WHERE id_categoria = ? AND capacidade >= ?";
+    String sql = "SELECT id FROM Quarto WHERE id_categoria = ?";
     try (Connection connection = DriverManager.getConnection(url, user, password);
          PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
         preparedStatement.setInt(1, categoria);
-        preparedStatement.setInt(2, pessoas);
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
@@ -460,8 +338,4 @@ public class standartController {
     return quartosCategoria;
 }
 
-    
-
 }
-
-

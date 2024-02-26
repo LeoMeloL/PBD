@@ -1,3 +1,12 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +21,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class roomController {
+
+    static String url = "jdbc:postgresql://192.168.0.6:5432/PBD";
+    static String user = "postgres";
+    static String password = "123456";
 
     @FXML
     private Button searchBarButton;
@@ -33,6 +46,24 @@ public class roomController {
 
     @FXML
     void searchBarAction(ActionEvent event) {
+        String text = searchBarField.getText();
+        System.out.println(text);
+        List<String> palavrasChaveEncontradas = null;
+
+        if (!text.isEmpty()) {
+            palavrasChaveEncontradas = buscarPalavrasChave(text);
+    
+            for (String palavra : palavrasChaveEncontradas) {
+                System.out.println("Palavra-chave encontrada: " + palavra);
+            }
+        } else {
+            System.out.println("Nenhum texto foi digitado no campo de pesquisa.");
+        }
+
+
+        openRoomListScreen(palavrasChaveEncontradas);
+
+
 
     }
 
@@ -77,7 +108,7 @@ public class roomController {
 
     @FXML
     void suiteAction(MouseEvent event) {
-
+        openVipScreen();
     }
 
     @FXML
@@ -95,6 +126,7 @@ public class roomController {
 
     @FXML
     void vipAction(MouseEvent event) {
+        openVipScreen();
 
     }
 
@@ -147,5 +179,74 @@ public class roomController {
         stage.close();
 
         }
+
+    private void openVipScreen(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vipLayout.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene tela = new Scene(root);
+
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("vip");
+            primaryStage.setScene(tela);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.out.println("Erro ao abrir a vip screen");
+        }
+
+        Stage stage = (Stage) standartImage.getScene().getWindow();
+        stage.close();
+    }
+
+    public static List<String> buscarPalavrasChave(String texto) {
+        List<String> palavrasChaveEncontradas = new ArrayList<>();
+    
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+            String sql = "SELECT words FROM keywords WHERE ? LIKE CONCAT('%', words, '%')";
+            PreparedStatement statement = connection.prepareStatement(sql);
+    
+            // Para cada palavra-chave no banco de dados
+            try (Statement keywordsStatement = connection.createStatement();
+                 ResultSet keywordsResultSet = keywordsStatement.executeQuery("SELECT words FROM keywords")) {
+                while (keywordsResultSet.next()) {
+                    String palavraChave = keywordsResultSet.getString("words");
+                    statement.setString(1, texto);
+                    
+                    // Se o texto contém a palavra-chave completa, adicione-a à lista
+                    if (texto.contains(palavraChave)) {
+                        palavrasChaveEncontradas.add(palavraChave);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    
+        return palavrasChaveEncontradas;
+    }
+
+    private void openRoomListScreen(List<String> palavrasChaveEncontradas){
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("roomList.fxml"));
+            Parent root = fxmlLoader.load();
+            roomListController controller = fxmlLoader.getController();
+            controller.initData(palavrasChaveEncontradas);
+
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("list");
+            Scene tela = new Scene(root);
+            primaryStage.setScene(tela);
+            primaryStage.show();
+        } catch (Exception e) {
+            System.out.println("Erro ao abrir a list screen");
+        }
+
+        Stage stage = (Stage) standartImage.getScene().getWindow();
+        stage.close();
+
+    }
+    
 }
+
 
