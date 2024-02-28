@@ -13,6 +13,10 @@ CREATE TABLE Usuario (
     senha_hash VARCHAR(256)
 );
 
+CREATE TABLE keywords (
+    words VARCHAR(50)
+);
+
 CREATE TABLE CategoriaQuarto (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50),

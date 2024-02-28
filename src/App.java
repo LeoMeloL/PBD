@@ -22,4 +22,3 @@ public class App extends Application {
         primaryStage.show();
     }
     }
-
