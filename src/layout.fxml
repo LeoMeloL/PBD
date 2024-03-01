@@ -49,7 +49,7 @@
       <children>
             <ImageView fitHeight="400.0" fitWidth="500.0" layoutX="139.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../Desktop/360_F_292905667_yFUJNJPngYeRNlrRL4hApHWxuYyRY4kN.jpg" />
+                  <Image url="@img/360_F_292905667_yFUJNJPngYeRNlrRL4hApHWxuYyRY4kN.jpg" />
                </image>
             </ImageView>
             <Label layoutX="372.0" layoutY="35.0" prefHeight="37.0" prefWidth="238.0" text="Hotel Login" textFill="#ffd54d">
