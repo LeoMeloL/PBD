@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
@@ -112,6 +114,11 @@ public class standartController {
 
     @FXML
     void duoRoomAction(MouseEvent event) {
+        if (emailTextField.getText().isEmpty()) {
+            // O TextField está vazio
+            warning("Erro", "Digite seu email na parte superior direita!!");
+            return;
+        }
 
         String textoNumero = singleTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
@@ -163,6 +170,12 @@ public class standartController {
 
     @FXML
     void fiveRoomAction(MouseEvent event) {
+        if (emailTextField.getText().isEmpty()) {
+            // O TextField está vazio
+            warning("Erro", "Digite seu email na parte superior direita!!");
+            return;
+        }
+
         	
         String textoNumero = singleTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
@@ -216,6 +229,11 @@ public class standartController {
 
     @FXML
     void singleRoomAction(MouseEvent event) {
+        if (emailTextField.getText().isEmpty()) {
+            // O TextField está vazio
+            warning("Erro", "Digite seu email na parte superior direita!!");
+            return;
+        }
 
         String textoNumero = singleTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
@@ -268,6 +286,11 @@ public class standartController {
 
     @FXML
     void trioRoomAction(MouseEvent event) {
+        if (emailTextField.getText().isEmpty()) {
+            // O TextField está vazio
+            warning("Erro", "Digite seu email na parte superior direita!!");
+            return;
+        }
 
         String textoNumero = singleTextField.getText();
         int qtd = Integer.parseInt(textoNumero);
@@ -459,6 +482,14 @@ public class standartController {
 
     return quartosCategoria;
 }
+
+private void warning(String titulo, String mensagem) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
 
     
 

@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
@@ -27,6 +29,7 @@ public class accountController {
     String senha;
     int id;
     String email;
+    String userType;
 
     @FXML
     private Label nameLabel;
@@ -36,6 +39,9 @@ public class accountController {
 
     @FXML
     private Label spentLabel;
+
+    @FXML
+    private Label adminLabel;
 
 
     @FXML
@@ -63,6 +69,25 @@ public class accountController {
     private Label faturaLabel;
 
     @FXML
+    void adminAction(MouseEvent event) {
+        openAdminScreen();
+
+    }
+
+    @FXML
+    void adminExitAction(MouseEvent event) {
+        adminLabel.setEffect(null);
+
+    }
+
+    @FXML
+    void adminPopAction(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        adminLabel.setEffect(dropShadow);
+
+    }
+
+    @FXML
     void inicioAction(MouseEvent event) {
         openMainScreen();
 
@@ -83,6 +108,12 @@ public class accountController {
 
     @FXML
     void checkoutAction(MouseEvent event) {
+        String text = spentLabel.getText();
+
+        if (!text.equals("0")) {
+            warning("Erro", "Voce deve pagar sua fatura primeiro!!!");
+            return;
+        }
         String sql = "DELETE FROM reserva WHERE id_usuario = ?";
     try (Connection connection = DriverManager.getConnection(url, user, password);
          PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -96,6 +127,7 @@ public class accountController {
     reservasQtdLabel.setText("0");
     spentLabel.setText("0");
 
+    warning("SUCESSO!!!", "Seu checkout foi realizado com sucesso!!!");
     }
 
     @FXML
@@ -112,6 +144,20 @@ public class accountController {
 
     @FXML
     void faturaAction(MouseEvent event) {
+        String sql = "DELETE FROM reserva WHERE id_usuario = ?";
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            int linhasAfetadas = statement.executeUpdate();
+            System.out.println(linhasAfetadas + " reserva(s) do usuário " + id + " foi(foram) apagada(s).");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    
+        reservasQtdLabel.setText("0");
+        spentLabel.setText("0");
+        warning("SUCESSO!!", "Sua fatura foi paga com sucesso!!!");
+        
 
     }
 
@@ -140,35 +186,55 @@ public class accountController {
     }
 
     public int obterDadosUsuario() {
-        String sql = "SELECT * FROM usuario WHERE email = ?";
+        String sqlUsuarioComum = "SELECT * FROM usuario WHERE email = ?";
+        String sqlAdministrador = "SELECT * FROM administrador WHERE email = ?";
         Connection connection;
-
-        
-
+    
         try {
             connection = DriverManager.getConnection(url, user, password);
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = connection.prepareStatement(sqlUsuarioComum);
             statement.setString(1, email);
             ResultSet result = statement.executeQuery();
-
+    
             if (result.next()) {
+                // O usuário foi encontrado na tabela de usuários comuns
                 nome = result.getString("nome");
                 senha = result.getString("senha_hash");
                 cpf = result.getString("cpf");
                 id = result.getInt("id");
+                userType = "Usuário comum";
+            } else {
+                // O usuário não foi encontrado na tabela de usuários comuns, então verifica na tabela de administradores
+                statement = connection.prepareStatement(sqlAdministrador);
+                statement.setString(1, email);
+                result = statement.executeQuery();
+    
+                if (result.next()) {
+                    // O usuário foi encontrado na tabela de administradores
+                    nome = result.getString("nome");
+                    senha = result.getString("senha_hash");
+                    id = result.getInt("id");
+                    userType = "Administrador";
+                    adminLabel.setVisible(true);
+
+                } else {
+                    // O usuário não foi encontrado em nenhuma das tabelas
+                    System.out.println("Usuário não encontrado.");
+                    return 0;
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    
         nameLabel.setText(nome);
         cpfLabel.setText(cpf);
         senhaLabel.setText(senha);
         emailLabel.setText(email);
-
+    
         return 1;
-
     }
+    
 
     public double calcularGastoTotalDoUsuario(int idUsuario) {
         double gastoTotal = 0.0;
@@ -224,6 +290,32 @@ public class accountController {
 
         }
 
+        private void openAdminScreen(){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("adminLayout.fxml"));
+                Parent root = fxmlLoader.load();
+                Scene tela = new Scene(root);
+    
+                Stage thirdStage = new Stage();
+                thirdStage.setTitle("Admin Screen");
+                thirdStage.setScene(tela);
+                thirdStage.show();
+            }catch (Exception e) {
+                System.out.println("Erro ao abrir a Admin screen");
+            }
+    
+            Stage stage = (Stage) inicioLabel.getScene().getWindow();
+            stage.close();
+    
+            }
+
+    private void warning(String titulo, String mensagem) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+        alert.showAndWait();
+    }
     
 }
 
