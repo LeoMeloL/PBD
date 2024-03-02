@@ -41,7 +41,7 @@ CREATE TABLE Quarto (
     id_hotel INT,
     id_categoria INT,
     capacidade INT,
-    ocupado BOOLEAN;
+    ocupado BOOLEAN,
     FOREIGN KEY (id_categoria) REFERENCES CategoriaQuarto(id),
     FOREIGN KEY (id_hotel) REFERENCES Hotel(id)
 );
