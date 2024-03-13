@@ -3,15 +3,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -30,6 +34,7 @@ public class accountController {
     int id;
     String email;
     String userType;
+    int avaliation;
 
     @FXML
     private Label nameLabel;
@@ -67,6 +72,139 @@ public class accountController {
 
     @FXML
     private Label faturaLabel;
+
+        @FXML
+    private ImageView fiveStar;
+
+    @FXML
+    private ImageView fourStar;
+
+    @FXML
+    private ImageView oneStar;
+
+    @FXML
+    private Button sendButton;
+
+    @FXML
+    private TextField textField;
+
+    @FXML
+    private ImageView threeStar;
+
+    @FXML
+    private ImageView twoStar;
+
+    @FXML
+    void fiveStarAction(MouseEvent event) {
+        avaliation = 5;
+        DropShadow dropShadow = new DropShadow();
+        fiveStar.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void fiveStarExit(MouseEvent event) {
+        fiveStar.setEffect(null);
+
+    }
+
+    @FXML
+    void fiveStarPop(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        fiveStar.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void fourStarAction(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        fourStar.setEffect(dropShadow);
+        avaliation = 4;
+
+    }
+
+    @FXML
+    void fourStarExit(MouseEvent event) {
+        fourStar.setEffect(null);
+
+    }
+
+    @FXML
+    void fourStarPop(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        fourStar.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void oneStarAction(MouseEvent event) {
+        avaliation = 1;
+        DropShadow dropShadow = new DropShadow();
+        oneStar.setEffect(dropShadow);
+
+
+    }
+
+    @FXML
+    void oneStarExit(MouseEvent event) {
+        oneStar.setEffect(null);
+
+    }
+
+    @FXML
+    void oneStarPop(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        oneStar.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void sendButtonAction(ActionEvent event) {
+        String text = textField.getText();
+        inserirComentarioAvaliacao(id,text, avaliation);
+
+    }
+
+    @FXML
+    void threeStarAction(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        threeStar.setEffect(dropShadow);
+        avaliation = 3;
+
+    }
+
+    @FXML
+    void threeStarExit(MouseEvent event) {
+        threeStar.setEffect(null);
+
+    }
+
+    @FXML
+    void threeStarPop(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        threeStar.setEffect(dropShadow);
+
+    }
+
+    @FXML
+    void twoStarAction(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        twoStar.setEffect(dropShadow);
+        avaliation = 2;
+
+    }
+
+    @FXML
+    void twoStarExit(MouseEvent event) {
+        twoStar.setEffect(null);
+    }
+
+    @FXML
+    void twoStarPop(MouseEvent event) {
+        DropShadow dropShadow = new DropShadow();
+        twoStar.setEffect(dropShadow);
+
+    }
 
     @FXML
     void adminAction(MouseEvent event) {
@@ -316,6 +454,29 @@ public class accountController {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
+
+    public void inserirComentarioAvaliacao(int idUsuario, String comentario, int pontuacao) {
+        String sql = "INSERT INTO comentarioAvaliacao (id_usuario, texto_comentario, pontuacao) VALUES (?, ?, ?)";
+        
+        try (Connection connection = DriverManager.getConnection(url, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            
+            preparedStatement.setInt(1, idUsuario);
+            preparedStatement.setString(2, comentario);
+            preparedStatement.setInt(3, pontuacao);
+            
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Comentário e pontuação inseridos com sucesso!");
+            } else {
+                System.out.println("Erro ao inserir comentário e pontuação.");
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
 }
 

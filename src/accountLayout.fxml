@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -69,5 +70,51 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
+      <TextField fx:id="textField" layoutX="91.0" layoutY="436.0" prefHeight="176.0" prefWidth="553.0" promptText="Deixe um comentário">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <ImageView fx:id="oneStar" fitHeight="67.0" fitWidth="78.0" layoutX="170.0" layoutY="339.0" onMouseClicked="#oneStarAction" onMouseEntered="#oneStarPop" onMouseExited="#oneStarExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="twoStar" fitHeight="67.0" fitWidth="78.0" layoutX="248.0" layoutY="339.0" onMouseClicked="#twoStarAction" onMouseEntered="#twoStarPop" onMouseExited="#twoStarExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="threeStar" fitHeight="67.0" fitWidth="78.0" layoutX="326.0" layoutY="339.0" onMouseClicked="#threeStarAction" onMouseEntered="#threeStarPop" onMouseExited="#threeStarExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="fourStar" fitHeight="67.0" fitWidth="78.0" layoutX="404.0" layoutY="339.0" onMouseClicked="#fourStarAction" onMouseEntered="#fourStarPop" onMouseExited="#fourStarExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="fiveStar" fitHeight="67.0" fitWidth="78.0" layoutX="482.0" layoutY="339.0" onMouseClicked="#fiveStarAction" onMouseEntered="#fiveStarPop" onMouseExited="#fiveStarExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button fx:id="sendButton" layoutX="283.0" layoutY="633.0" mnemonicParsing="false" onAction="#sendButtonAction" prefHeight="25.0" prefWidth="122.0" text="Enviar" />
    </children>
 </Pane>
