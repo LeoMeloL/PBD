@@ -21,9 +21,9 @@ import javafx.stage.Stage;
 public class accountController {
 
     String textoDigitado;
-    String url = "jdbc:postgresql://192.168.0.6:5432/PBD";
+    String url = "jdbc:postgresql://localhost:5432/postgres";
     String user = "postgres";
-    String password = "123456";
+    String password = "Miguel@123459876";
     String nome;
     String cpf;
     String senha;
