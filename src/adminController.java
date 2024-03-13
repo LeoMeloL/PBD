@@ -18,9 +18,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class adminController {
-    static String url = "jdbc:postgresql://192.168.0.6:5432/PBD";
+    static String url = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
-    static String password = "123456";
+    static String password = "Miguel@123459876";
 
     @FXML
     private Label removeLabel;
