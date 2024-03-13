@@ -25,9 +25,9 @@ public class roomListController{
     int preco;
     int pessoas;
 
-    String url = "jdbc:postgresql://192.168.0.6:5432/PBD";
+    String url = "jdbc:postgresql://localhost:5432/postgres";
     String user = "postgres";
-    String password = "123456";
+    String password = "Miguel@123459876";
 
     @FXML
     private Label anotherLabel;

@@ -68,7 +68,7 @@ public class LoginController {
     
         try {
             Class.forName("org.postgresql.Driver");
-            conexao = DriverManager.getConnection("jdbc:postgresql://192.168.0.6:5432/PBD", "postgres", "123456");
+            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Miguel@123459876");
             System.out.println("Conexão bem-sucedida!");
     
             String sqlUsuario = "SELECT COUNT(*) FROM usuario WHERE nome = ? AND senha_hash = ?";
