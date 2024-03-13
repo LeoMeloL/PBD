@@ -1,12 +1,12 @@
 CREATE TABLE Administrador (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     senha_hash VARCHAR(256)
 );
 
 CREATE TABLE Usuario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     cpf VARCHAR(14) UNIQUE,
     nome VARCHAR(100),
     email VARCHAR(100) UNIQUE,
@@ -14,13 +14,13 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE Keyword (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     words VARCHAR(50) UNIQUE
 );
 
 
 CREATE TABLE CategoriaQuarto (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     nome VARCHAR(50),
     descricao TEXT,
     restricoes TEXT,
@@ -39,7 +39,7 @@ CREATE TABLE Hotel (
 );
 
 CREATE TABLE Quarto (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     id_hotel INT,
     id_categoria INT,
     capacidade INT,
@@ -49,7 +49,7 @@ CREATE TABLE Quarto (
 );
 
 CREATE TABLE Reserva (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     id_usuario INT,
     id_quarto INT,
     preco DECIMAL(10,2),
@@ -59,7 +59,7 @@ CREATE TABLE Reserva (
 );
 
 CREATE TABLE ComentarioAvaliacao (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     id_usuario INT,
     id_hotel INT,
     pontuacao DECIMAL(3,2),
@@ -70,7 +70,7 @@ CREATE TABLE ComentarioAvaliacao (
 );
 
 CREATE TABLE Imagens (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT SERIAL PRIMARY KEY,
     id_hotel INT,
     url_imagem TEXT,
     FOREIGN KEY (id_hotel) REFERENCES Hotel(id)
