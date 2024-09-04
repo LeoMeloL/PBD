@@ -211,3 +211,45 @@ fibonacci = Seq
                             (DAtrrib (Var "prev") (Var "atual") (Var "atual") (Var "res"))       
                     )
                 )
+
+sqrtMem :: Memoria
+sqrtMem = [("n", 49), ("guess", 1), ("prevGuess", 0)] --n = raiz a ser calculada
+
+-- Calcula o valor aproximado de uma raiz
+sqrtGuess :: C -- Uso: cbigStep (sqrtGuess, sqrtMem)
+sqrtGuess = 
+    Seq 
+        (DAtrrib (Var "guess") (Var "n") (Num 1) (Var "n"))
+        (DoWhile
+            (Seq
+                (Atrib (Var "prevGuess") (Var "guess"))
+                (Atrib (Var "guess") (Div (Soma (Var "guess") (Div (Var "n") (Var "guess"))) (Num 2)))
+            )
+            (Not (Igual (Var "guess") (Var "prevGuess")))
+        )
+
+log2Mem :: Memoria
+log2Mem = [("n", 16), ("k", 0), ("p", 1)] -- fórmula: 2^k = n
+
+-- Calcula o logaritmo base 2
+log2 :: C -- Uso: cbigStep (log2, log2Mem)
+log2 =
+    Seq
+        (Seq
+            (Atrib (Var "k") (Num 0))
+            (Atrib (Var "p") (Num 1))
+        )
+        (Seq
+            (DoWhile
+                (Seq
+                    (Atrib (Var "k") (Soma (Var "k") (Num 1)))
+                    (Atrib (Var "p") (Mult (Var "p") (Num 2)))
+                )
+                (Leq (Var "p") (Var "n"))
+            )
+            -- faz k-1 porque tava dando um valor acima (n sei porque)
+            (Atrib (Var "k") (Sub (Var "k") (Num 1)))
+        )
+
+
+
